@@ -1,10 +1,10 @@
 ################### MY IGNORES ###################
 # jupyter notebooks used for testing wtf function
-.ipynb
-.ipynb_checkpoints
+*.ipynb
+*.ipynb_checkpoints
 
 # dev_model file, containing sample network for dev purposes
-.dev_model
+dev_model/
 
 ################### PYTHON DEFAULTS ###################
 
