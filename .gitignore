@@ -3,6 +3,9 @@
 .ipynb
 .ipynb_checkpoints
 
+# dev_model file, containing sample network for dev purposes
+.dev_model
+
 ################### PYTHON DEFAULTS ###################
 
 # Byte-compiled / optimized / DLL files
