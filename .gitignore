@@ -1,3 +1,10 @@
+################### MY IGNORES ###################
+# jupyter notebooks used for testing wtf function
+.ipynb
+.ipynb_checkpoints
+
+################### PYTHON DEFAULTS ###################
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
