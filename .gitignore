@@ -3,8 +3,11 @@
 *.ipynb
 *.ipynb_checkpoints
 
-# dev_model file, containing sample network for dev purposes
+# dev_model folder, containing sample network for dev purposes
 dev_model/
+
+# json files created for variable viewer
+*.json
 
 ################### PYTHON DEFAULTS ###################
 
