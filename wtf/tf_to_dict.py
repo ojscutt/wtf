@@ -7,11 +7,10 @@ function for converting keras model files into streamlined dictionary, maintaini
 
 import tensorflow as tf
 import json
-from typing import Dict, Any
 
 def tf_to_dict(
-    tf_model: tf.keras.Model,
-    ) -> Dict[str,Any]:
+    tf_model,
+    ):
     
     """
     convert keras model files into streamlined dictionaries, maintaining important layer info
