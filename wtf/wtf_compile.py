@@ -39,8 +39,8 @@ class wtf_compile:
                 elif layer_type == 'Dense':
                     activation = layer['activation']
                     
-                    weights = layer['weights']
-                    biases = layer['biases']
+                    weights = jnp.array(layer['weights'])
+                    biases = jnp.array(layer['biases'])
                     
                     x = jnp.dot(x, weights) + biases
 
@@ -64,8 +64,8 @@ class wtf_compile:
                 elif layer_type == 'Dense':
                     activation = layer['activation']
                     
-                    weights = layer['weights']
-                    biases = layer['biases']
+                    weights = np.array(layer['weights'])
+                    biases = np.array(layer['biases'])
                     
                     x = np.dot(x, weights) + biases
 
@@ -95,8 +95,8 @@ class wtf_compile:
                     elif layer_type == 'Dense':
                         activation = layer['activation']
                         
-                        weights = layer['weights']
-                        biases = layer['biases']
+                        weights = jnp.array(layer['weights'])
+                        biases = jnp.array(layer['biases'])
                         
                         x = jnp.dot(x, weights) + biases
     
@@ -128,8 +128,8 @@ class wtf_compile:
                     elif layer_type == 'Dense':
                         activation = layer['activation']
                         
-                        weights = layer['weights']
-                        biases = layer['biases']
+                        weights = np.array(layer['weights'])
+                        biases = np.array(layer['biases'])
                         
                         x = np.dot(x, weights) + biases
     

@@ -79,8 +79,8 @@ def tf_to_dict(
     
             wtf_layer['units'] = tf_layer['config']['units']
             
-            wtf_layer['weights'] = tf_wb[tf_layer['name']][0]
-            wtf_layer['biases'] = tf_wb[tf_layer['name']][1]
+            wtf_layer['weights'] = tf_wb[tf_layer['name']][0].tolist()
+            wtf_layer['biases'] = tf_wb[tf_layer['name']][1].tolist()
     
             wtf_layer['activation'] = tf_layer['config']['activation']
     
