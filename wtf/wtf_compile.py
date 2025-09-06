@@ -80,19 +80,11 @@ class wtf_compile:
             for branch_idx in range(self.n_branches):
                 x = stem_out
                 
-                for layer_name in list(self.wtf_dict['structure'][f'branch_{branch_idx}'].values()):
+                for layer_name in list(self.wtf_dict['structure'][f'branch_{branch_idx}'].values())[1:]: #[1:] because first is final layer of stem
                     layer = self.wtf_dict['layers'][layer_name]
                     layer_type = layer['type']
-                    
-                    if layer_type == 'InputLayer':
-                        input_shape = jnp.shape(x)
-                        batch_shape = layer['batch_shape']
-                        assert input_shape[1] == batch_shape[1],(
-                            f'wtf!\r \tinput shape = (n, {input_shape[1]}), but expected input layer batch_shape = (n, {batch_shape[1]})'
-                        )
-                        pass
     
-                    elif layer_type == 'Dense':
+                    if layer_type == 'Dense':
                         activation = layer['activation']
                         
                         weights = jnp.array(layer['weights'])
@@ -113,19 +105,12 @@ class wtf_compile:
             for branch_idx in range(self.n_branches):
                 x = stem_out
                 
-                for layer_name in list(self.wtf_dict['structure'][f'branch_{branch_idx}'].values()):
+                for layer_name in list(self.wtf_dict['structure'][f'branch_{branch_idx}'].values())[1:]: #[1:] because first is final layer of stem
                     layer = self.wtf_dict['layers'][layer_name]
                     layer_type = layer['type']
                     
-                    if layer_type == 'InputLayer':
-                        input_shape = np.shape(x)
-                        batch_shape = layer['batch_shape']
-                        assert input_shape[1] == batch_shape[1],(
-                            f'wtf!\r \tinput shape = (n, {input_shape[1]}), but expected input layer batch_shape = (n, {batch_shape[1]})'
-                        )
-                        pass
     
-                    elif layer_type == 'Dense':
+                    if layer_type == 'Dense':
                         activation = layer['activation']
                         
                         weights = np.array(layer['weights'])

@@ -122,7 +122,7 @@ def tf_to_dict(
         wtf_model['structure']['branch_1'][0] = layer_name
         
         branch_n = 0
-        for branch_layer in branch_layers:
+        for branch_layer in branch_layers[::-1]: #inversed as hack to fix difference in behaviour - shouldn't affect outputs
             print(f'\t--- branch: {branch_n} ---')
             print(f'\t{layer_name}')
             print('\t  |')
