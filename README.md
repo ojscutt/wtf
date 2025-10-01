@@ -10,7 +10,7 @@ a couple useful tools for moving away from TensorFlow dependency after training 
 ## recommended usage
 1) in training env (with TensorFlow installed): immediately after training and saving a TensorFlow model, `tf_model`, convert to dict with `wtf_dict = tf_to_dict(tf_model)` and save to .json or pickle
 
-2) in inference env (streamlined env without TensorFlow): load in saved json/pickle dict from `tf_to_dict` and compile with either `wtf_model = numpy_compile(wtf_dict)` or `wtf_model = jax_compile(wtf_dict)`
+2) in inference env (streamlined env without TensorFlow): load in saved json/pickle dict from `tf_to_dict` and compile with either `wtf_model = numpy_compile(wtf_dict)` or `wtf_model = jax_compile(wtf_dict)` (I strongly advise compiling once in NumPy and assuring expected behaviour before moving to JAX (see gotchas))
 
 3) in inference env: perform forward pass for array of inputs `x` with compiled model with `wtf_model.forward_pass(x)`
 
@@ -18,6 +18,7 @@ a couple useful tools for moving away from TensorFlow dependency after training 
 
 ## gotchas
 - !This code was hastily written! Please check the model interpretation printouts from `tf_to_dict` match your expected network structure before trying `compile_from_dict` steps
+- The NumPy version of `forward_pass` contains an assert to check that the batch shape passed to the network which is not present in the JAX version (to allow compilation) - therefore, I strongly advice checking behaviour of `forward_pass` in NumPy before switching to JAX!
 - You will need to hard code your data scaling and any custom objects (like a final PCA reprojection layer, for example) as a wrapper around your `wtf_model.forward_pass(x)` to get expected results
 - Currently only supports simple sequential or branching networks
 - Currently only implemented `elu` activation
