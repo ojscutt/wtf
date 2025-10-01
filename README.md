@@ -7,6 +7,8 @@ a couple useful tools for moving away from TensorFlow dependency after training 
 
 - `compile_from_dict/jax_compile` - compile a network with JAX backend, perform forward pass with `forward_pass` or JIT-compile and pass with `jit_forward_pass`
 
+See the notebooks `tf_to_dict.ipynb` and `compile_from_dict.ipynb` for examples of usage on the example model in `models`.
+
 ## recommended usage
 1) in training env (with TensorFlow installed): immediately after training and saving a TensorFlow model, `tf_model`, convert to dict with `wtf_dict = tf_to_dict(tf_model)` and save to .json or pickle
 
